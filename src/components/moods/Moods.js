@@ -3,25 +3,15 @@ import { Planet } from "react-kawaii";
 
 import styles from "./Moods.module.css";
 
-const moodTypes = [
-  "sad",
-  "shocked",
-  "happy",
-  "blissful",
-  "lovestruck",
-  "excited",
-  "ko"
-];
-
-export default function Moods() {
+export default function Moods({ items }) {
   return (
     <div className={styles.Moods}>
-      {moodTypes.map(mood => (
+      {items.map(mood => (
         <span className={styles.MoodWrapper}>
           <Planet
             className={styles.Mood}
             color="#fad201"
-            mood={mood}
+            mood={mood.id}
             size={70}
           />
         </span>
