@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import IceCreamWrapper from '../components/ice-cream-wrapper/IceCreamWrapper';
-import Colors from '../components/colors/Colors';
-import Moods from '../components/moods/Moods';
+import IceCreamWrapper from '../components/ice-cream-wrapper';
+import Colors from '../components/colors';
+import Moods from '../components/moods';
 import { colorsDefault, moodsDefault } from '../initialData';
 
 import './App.css';
