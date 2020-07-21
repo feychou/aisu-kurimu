@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import IceCreamWrapper from './components/ice-cream-wrapper/IceCreamWrapper';
 import Colors from './components/colors/Colors';
+import Moods from './components/moods/Moods';
+
 import './App.css';
 
 
@@ -60,6 +62,7 @@ function App() {
     <div className="App">
       <IceCreamWrapper color={activeColor} />
       <Colors items={colors} action={selectColor} />
+      <Moods />
     </div>
   );
 }
