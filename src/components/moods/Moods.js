@@ -3,11 +3,16 @@ import { Planet } from "react-kawaii";
 
 import styles from "./Moods.module.css";
 
-export default function Moods({ items }) {
+export default function Moods({ items, action }) {
   return (
     <div className={styles.Moods}>
       {items.map(mood => (
-        <span className={styles.MoodWrapper}>
+        <span
+          className={`${styles.MoodWrapper} ${
+            mood.isSelected ? styles.MoodWrapperSelected : ""
+          }`}
+          onClick={() => action(mood.id)}
+        >
           <Planet
             className={styles.Mood}
             color="#fad201"

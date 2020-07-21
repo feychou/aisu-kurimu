@@ -12,23 +12,31 @@ function App() {
   const [moods, setMoods] = useState(moodsDefault);
 
   const selectColor = colorId => {
-    const newColors = colors.map(color => {
-      return {
-        ...color,
-        isSelected: color.id === colorId
-      };
-    });
+    const newColors = colors.map(color => ({
+      ...color,
+      isSelected: color.id === colorId
+    }));
 
     setColors(newColors);
   };
 
+  const selectMood = moodId => {
+    const newMoods = moods.map(mood => ({
+      ...mood,
+      isSelected: mood.id === moodId
+    }));
+
+    setMoods(newMoods);
+  };
+
   const activeColor = colors.find(color => color.isSelected === true).id;
+  const activeMood = moods.find(mood => mood.isSelected === true).id;
 
   return (
     <div className="App">
-      <IceCreamWrapper color={activeColor} />
+      <IceCreamWrapper color={activeColor} mood={activeMood} />
       <Colors items={colors} action={selectColor} />
-      <Moods items={moods} />
+      <Moods items={moods} action={selectMood} />
     </div>
   );
 }
