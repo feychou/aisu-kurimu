@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { IceCream } from 'react-kawaii';
 
+import IceCreamWrapper from './components/ice-cream-wrapper/IceCreamWrapper';
 import Colors from './components/colors/Colors';
-//import Moods from './components/moods';
 import './App.css';
 
 
@@ -44,31 +43,22 @@ const colorsDefault = [
 function App() {
   const [colors, setColors] = useState(colorsDefault);
 
-  const selectColor = (colorId) => {
+  const selectColor = colorId => {
     const newColors = colors.map(color => {
-      if (color.id === colorId) {
-        return {
-          ...color,
-          isSelected: true
-        }
-      }
-
       return {
         ...color,
-        isSelected: false
-      }
-    })
+        isSelected: color.id === colorId
+      };
+    });
 
-    setColors(newColors)   
-  }
+    setColors(newColors);
+  };
 
   const activeColor = colors.find(color => color.isSelected === true).id;
 
   return (
     <div className="App">
-      <div className="IceCream">
-        <IceCream size={400} color={activeColor} />
-      </div>
+      <IceCreamWrapper color={activeColor} />
       <Colors items={colors} action={selectColor} />
     </div>
   );
